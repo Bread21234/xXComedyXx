@@ -45,7 +45,6 @@ public class ShootScript : MonoBehaviour
     void shoot()
     {
         GameObject BulletIns = Instantiate(Bullet,ShootPoint.position,ShootPoint.rotation);
-        BulletIns.GetComponent<Rigidbody2D>().AddForce(BulletIns.transform.right * BulletSpeed);
-        Destroy(BulletIns,3); //removing bullets after period of time
+        BulletIns.GetComponent<Rigidbody2D>().AddForce(BulletIns.transform.right * BulletSpeed); //this doesnt seem to create issue with pushing player
     }
 }
