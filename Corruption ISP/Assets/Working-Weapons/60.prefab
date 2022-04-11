@@ -97,11 +97,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gun: {fileID: 6053795603079889241}
+  ShootPoint: {fileID: 1912695789154868228}
   Bullet: {fileID: 5948788533092374537, guid: 34d33337e7322604594d436bfbd5ba06, type: 3}
   BulletSpeed: 1000
-  ShootPoint: {fileID: 1912695789154868228}
   fireRate: 10
   ReadyforNextShot: 3
+  animator: {fileID: 0}
+  maxAmmo: 0
+  reloadTime: 5
 --- !u!1 &8543303669123312592
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +129,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8543303669123312592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.14, y: 0, z: 0}
+  m_LocalPosition: {x: 0.3081, y: 0.0722, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6053795603079889241}

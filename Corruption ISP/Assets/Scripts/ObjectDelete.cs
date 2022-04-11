@@ -8,7 +8,7 @@ public class ObjectDelete : MonoBehaviour //this needs to be redone later
     int f = 0;
     // Start is called before the first frame update
 
-    // Update is called once per frame
+// Update is called once per frame    
     void FixedUpdate()
     {
         f += 1;
