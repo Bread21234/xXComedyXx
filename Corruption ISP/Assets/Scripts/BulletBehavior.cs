@@ -19,12 +19,17 @@ public class BulletBehavior : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D hitInfo)
     {
-        Enemy enemy = hitInfo.GetComponent<Enemy>();
-        if (enemy != null)
-        {
-            enemy.TakeDamage(damage);
+        playerHealth player = hitInfo.GetComponent<playerHealth>();
+        ShootScript gun = hitInfo.GetComponent<ShootScript>();
+        if (player == null && gun == null){ //ignores those two things
+            Enemy enemy = hitInfo.GetComponent<Enemy>();
+            // Debug.Log(enemy);
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
+            //Instantiate(impactEffect,transform.position,transform.rotation);
+            Destroy(gameObject);
         }
-        //Instantiate(impactEffect,transform.position,transform.rotation);
-        Destroy(gameObject);
     }
 }

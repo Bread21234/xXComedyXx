@@ -21,5 +21,9 @@ public class Enemy : MonoBehaviour
     {
         Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
+        if (gameObject.transform.parent != null)
+        {
+            Destroy(gameObject.transform.parent.gameObject);
+        }
     }
 }
