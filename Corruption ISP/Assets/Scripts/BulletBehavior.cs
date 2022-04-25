@@ -12,17 +12,14 @@ public class BulletBehavior : MonoBehaviour
     
     public int damage = 40;
 
-   // void Start ()
-   // {
-   //     rb.velocity = transform.right * speed; //seems to push player 
-   // }
-
-    void OnTriggerEnter2D (Collider2D hitInfo)
+       //playerHealth player = hitInfo.GetComponent<playerHealth>();
+        //ShootScript gun = hitInfo.GetComponent<ShootScript>();
+        //BulletBehavior bullet = hitInfo.GetComponent<BulletBehavior>();
+        //if (player == null && gun == null && bullet == null){ //ignores those two things
+    void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        playerHealth player = hitInfo.GetComponent<playerHealth>();
-        ShootScript gun = hitInfo.GetComponent<ShootScript>();
-        if (player == null && gun == null){ //ignores those two things
-            Enemy enemy = hitInfo.GetComponent<Enemy>();
+        Enemy enemy = hitInfo.GetComponent<Enemy>(); //HERHEHREHHREHRHEHREHHREHRHERHED
+        if (enemy != null || hitInfo.CompareTag("Obstacle") == true){
             // Debug.Log(enemy);
             if (enemy != null)
             {

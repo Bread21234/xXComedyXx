@@ -7,22 +7,31 @@ public class EnemySpawner : MonoBehaviour
     // make a collision detector right at the beginning of each door
     //find a random location within a range of ten instantiate a random enemy much like the boxes. 
 
-    
-   // Random r = new Random();
-  //  int rInt = r.Next(0, 10); //for ints
-    //int range = 10;
- 
+    public GameObject[] enemies;
+    public int enemyNumber = 2;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-       // Debug.Log(r);
-        //Random.Log(range);
-    }
+    public GameObject LockedRoom;
+    public bool spawnedRoom = false;
 
-    // Update is called once per frame
-    void Update()
+
+    private int xOffset;
+    private int yOffset;
+    private Vector3 offset;
+    private int randEnemy;
+    void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if(other.CompareTag("Player") && spawnedRoom == false)
+        {
+            Instantiate(LockedRoom,transform.position,Quaternion.identity);
+            
+            for (int i = 0; i <= enemyNumber; i++){
+                xOffset = Random.Range(-100,100);
+                yOffset = Random.Range(-100,100);
+                offset = new Vector3(xOffset,yOffset,0);
+                randEnemy = Random.Range(0, enemies.Length);
+                Instantiate(enemies[randEnemy], transform.position + offset, Quaternion.identity);
+            }
+            spawnedRoom = true;
+        }
     }
 }

@@ -33,4 +33,14 @@ public class PlayerMovement : MonoBehaviour
       //  float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
        // rb.rotation = angle;
     }
+
+    private void OnLevelWasLoaded(int Level)
+    {
+      FindStartPos();
+    }
+
+    void FindStartPos()
+    {
+      transform.position = GameObject.FindWithTag("Start Position").transform.position;
+    }
 }

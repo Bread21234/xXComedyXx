@@ -8,7 +8,7 @@ public class CrawlerAI : MonoBehaviour
 
     public Transform target;
 
-    public float speed = 200f;
+    public float speed = 10000;
     public float nextWaypointDistance = 3f;
 
     public Transform enemyGFX;
@@ -24,6 +24,7 @@ public class CrawlerAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        target = GameObject.FindWithTag("Player").transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 

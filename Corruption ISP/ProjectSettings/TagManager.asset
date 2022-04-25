@@ -7,6 +7,12 @@ TagManager:
   - Spawn Point
   - Rooms
   - GunHolder
+  - Obstacle
+  - LockedRoom
+  - Enemy
+  - Boss
+  - Enemy Spawner
+  - Start Position
   layers:
   - Default
   - TransparentFX

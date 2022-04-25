@@ -13,19 +13,19 @@ public class RoomTemplates : MonoBehaviour
     public GameObject closedRooms;
 
     public List<GameObject> rooms;
+    public GameObject Destroyer;
 
     public float waitTime;
-    private bool spawnedBoss;
-    public GameObject boss;
+    private bool spawnedBossSpawner;
+    public GameObject bossSpawner;
+   // public GameObject player1;
 
     void Update(){
-       if(waitTime <= 0 && spawnedBoss == false){
-           //for (int i = 0; i < rooms.Count; i++){
-             //  if (i == rooms.Count-1){
-               //    Instantiate(boss, rooms[i].transform.position, Quaternion.identity);
-              //     spawnedBoss = true;
-               //}
-               Instantiate(boss, rooms[rooms.Count-1].transform.position, Quaternion.identity);
+        if(waitTime <= 0 && spawnedBossSpawner == false){
+                Instantiate(Destroyer, rooms[rooms.Count-1].transform.position, Quaternion.identity);
+                Instantiate(bossSpawner, rooms[rooms.Count-1].transform.position, Quaternion.identity);
+           //    Instantiate(player1, rooms[0].transform.position, Quaternion.identity);
+               spawnedBossSpawner = true;
        } else{
            waitTime -= Time.deltaTime;
        }
