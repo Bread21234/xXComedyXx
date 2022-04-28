@@ -15,6 +15,8 @@ public class EnemyShooterAI : MonoBehaviour
     public GameObject projectile;
     public Transform player;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,13 +38,31 @@ public class EnemyShooterAI : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
         }
+        
+        changeDirection(player.position);
 
         if(timeBtwShots <= 0)
-        {
-            Instantiate(projectile, transform.position, Quaternion.identity);
+        {  
+            StartCoroutine(animateShot());
             timeBtwShots = startTimeBtwShots;
         } else {
             timeBtwShots -= Time.deltaTime;
+        }
+    }
+    IEnumerator animateShot(){
+        animator.SetBool("CurrentlyShooting",true);
+        yield return new WaitForSeconds(.5f);
+        animator.SetBool("CurrentlyShooting",false);
+         Instantiate(projectile, transform.position, Quaternion.identity);
+    } 
+       void changeDirection(Vector3 position){
+        if(player.position.x > transform.position.x) //turn around
+        {
+            transform.localScale = new Vector3(200, 200, 200);
+        } else if(player.position.x < transform.position.x)
+        {
+            
+            transform.localScale = new Vector3(-1*200, 200, 200);
         }
     }
 }

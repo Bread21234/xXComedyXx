@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6730309676252397690}
   - component: {fileID: 6730309676252397689}
   m_Layer: 0
-  m_Name: Crawler
+  m_Name: Crawler BAd
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

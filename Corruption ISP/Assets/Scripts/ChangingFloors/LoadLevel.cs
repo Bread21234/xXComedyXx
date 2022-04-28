@@ -11,11 +11,15 @@ public class LoadLevel : MonoBehaviour
     public bool IntegerToLevel = false; 
 
     private GameObject player;
+    private GameObject Handler;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
         DontDestroyOnLoad(player);
+        Handler = GameObject.FindWithTag("Level Handler");
+        DontDestroyOnLoad(Handler);
+        DontDestroyOnLoad(Camera.main);
     }
 
     void OnTriggerEnter2D(Collider2D hitinfo)

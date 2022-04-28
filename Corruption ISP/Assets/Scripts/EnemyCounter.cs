@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyCounter : MonoBehaviour
 {
 
-    GameObject[] enemies;
+    public GameObject[] enemies;
     //public Text enemyCountText;
     // Update is called once per frame
     void Update()

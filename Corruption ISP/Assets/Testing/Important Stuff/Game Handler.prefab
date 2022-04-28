@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4824135797126247133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4824135797126247134}
+  - component: {fileID: 4824135797126247135}
+  - component: {fileID: 4824135797126247132}
+  m_Layer: 0
+  m_Name: Game Handler
+  m_TagString: Rooms
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4824135797126247134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4824135797126247133}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4824135797126247135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4824135797126247133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8265417e65427244da29a2cfe76aa219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bottomRooms:
+  - {fileID: 8847374574600286324, guid: 2ebcc3b4a8c341348af324d044f0cd19, type: 3}
+  - {fileID: 7242519118708095557, guid: 3920c196f6a89004b921842a37ba3d24, type: 3}
+  - {fileID: 5219812278481414586, guid: 37a2722b8fe0918449956d85fd0257ce, type: 3}
+  topRooms:
+  - {fileID: 37157715553102317, guid: 85fdbb4018f1b7245aaa640a61ded37c, type: 3}
+  - {fileID: 5219812278481414586, guid: 37a2722b8fe0918449956d85fd0257ce, type: 3}
+  - {fileID: 8839460697219185643, guid: 419042a63731e0048a59d97b3640a91a, type: 3}
+  - {fileID: 5539188430394649670, guid: 37338e4d8c751c4459e23abcc218e36b, type: 3}
+  leftRooms:
+  - {fileID: 8839460697219185643, guid: 419042a63731e0048a59d97b3640a91a, type: 3}
+  - {fileID: 3189516524510886852, guid: 89ab6cd1c19e2484fa97591447f9326f, type: 3}
+  - {fileID: 490717320139200207, guid: 9d7a8a0c1890c8e498382bff781ba286, type: 3}
+  rightRooms:
+  - {fileID: 7704282558193542328, guid: ee722d67553cf0c4c967e628c22c1854, type: 3}
+  - {fileID: 490717320139200207, guid: 9d7a8a0c1890c8e498382bff781ba286, type: 3}
+  - {fileID: 7242519118708095557, guid: 3920c196f6a89004b921842a37ba3d24, type: 3}
+  - {fileID: 5539188430394649670, guid: 37338e4d8c751c4459e23abcc218e36b, type: 3}
+  closedRooms: {fileID: 5208439147814844961, guid: 040873e8e92e69d4bba93f24db4baaa5, type: 3}
+  rooms: []
+  Destroyer: {fileID: 1132298147117704113, guid: afa264536a85f5142a739ad384efe632, type: 3}
+  waitTime: 2
+  bossSpawner: {fileID: 85318259602083865, guid: bb83c108a7333fe4baad493023d080e0, type: 3}
+  nextLevel: {fileID: 0}
+--- !u!114 &4824135797126247132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4824135797126247133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8af951f16ee927d419b5a01f171b8689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

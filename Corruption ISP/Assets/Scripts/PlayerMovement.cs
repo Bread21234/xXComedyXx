@@ -9,29 +9,31 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 10f;
 
     public Rigidbody2D rb;
-  //  public Camera cam;
 
     Vector2 movement;
-   // Vector2 mousePos; //mousestuff
+    public Animator animator;
+  
+    public float scale;
 
     // Update is called once per frame
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-
-        //mouse stuff
-      //  mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
     }
     void FixedUpdate()
     {
         //Movement
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
-        //mouse stuff
-       // Vector2 lookDir = mousePos - rb.position;
-      //  float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-       // rb.rotation = angle;
+        if(movement.x >= 0.01f) //turn around
+        {
+      //    transform.localScale = new Vector3(scale, scale, scale);
+        } else if(movement.x <= -0.01f)
+        {
+       //   transform.localScale = new Vector3(-1*scale, scale, scale);
+        }
     }
 
     private void OnLevelWasLoaded(int Level)

@@ -53,5 +53,10 @@ public class RoomSpawner : MonoBehaviour
             }
             spawned = true;
         }
+        if(other.CompareTag("Destroyer"))
+        {//other.GetComponent<RoomSpawner>() != null && 
+                Destroy(gameObject);
+        }
+        spawned = true;
     }
 }

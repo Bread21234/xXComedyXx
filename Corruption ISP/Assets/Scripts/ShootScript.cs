@@ -7,6 +7,7 @@ public class ShootScript : MonoBehaviour
     
     public Transform Gun;
     Vector2 direction;
+
     public Transform ShootPoint;
     public GameObject Bullet;
     public float BulletSpeed;
@@ -22,8 +23,11 @@ public class ShootScript : MonoBehaviour
     private int currentAmmo;
     public float reloadTime = 5f;
 
+    private Transform player;  
     void Start()
     {   
+        player = GameObject.FindWithTag("Player").transform;
+
         currentAmmo = maxAmmo;
         if (currentAmmo == -1)
             currentAmmo = maxAmmo;
@@ -68,6 +72,15 @@ public class ShootScript : MonoBehaviour
         if (Gun.parent != null){
             Gun.transform.right = direction;
         }
+        if(direction.x >= 0.01f)
+        {
+            player.localScale = new Vector3(200,200,1);
+            transform.localScale = new Vector3(7,7,1);
+        } else if(direction.x <= -0.01f)
+        {
+            player.localScale = new Vector3(-200,200,1);
+            transform.localScale = new Vector3(-7,-7,1);
+        }
     }
     void shoot()
     {
@@ -81,7 +94,7 @@ public class ShootScript : MonoBehaviour
     {
         isReloading = true;
         
-        Debug.Log("reloading");
+     //   Debug.Log("reloading");
 
         //animator.SetBool("Reloading",true); animations
 

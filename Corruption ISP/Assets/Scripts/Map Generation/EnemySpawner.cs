@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
     private int yOffset;
     private Vector3 offset;
     private int randEnemy;
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player") && spawnedRoom == false)
@@ -33,5 +34,9 @@ public class EnemySpawner : MonoBehaviour
             }
             spawnedRoom = true;
         }
+    }
+    public void addEnemies(int idk)
+    {
+        enemyNumber += idk;
     }
 }

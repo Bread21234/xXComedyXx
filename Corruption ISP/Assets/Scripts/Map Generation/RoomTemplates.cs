@@ -20,12 +20,22 @@ public class RoomTemplates : MonoBehaviour
     public GameObject bossSpawner;
    // public GameObject player1;
 
+    private NextLevel nextLevel;
+
+    void Start()
+    {
+        NextLevel nextLevel = GameObject.FindWithTag("Level Handler").GetComponent<NextLevel>();
+        nextLevel.levelUp();
+        StartCoroutine(nextLevel.holdPlease());
+    }
+
     void Update(){
         if(waitTime <= 0 && spawnedBossSpawner == false){
                 Instantiate(Destroyer, rooms[rooms.Count-1].transform.position, Quaternion.identity);
                 Instantiate(bossSpawner, rooms[rooms.Count-1].transform.position, Quaternion.identity);
            //    Instantiate(player1, rooms[0].transform.position, Quaternion.identity);
                spawnedBossSpawner = true;
+               waitTime = 0;
        } else{
            waitTime -= Time.deltaTime;
        }

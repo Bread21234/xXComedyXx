@@ -12,6 +12,12 @@ public class playerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       // enemySpawner[] = GameObject.FindWithTag("EnemySpawner");
+      //  for(i=0; i <= enemySpaner.Length; i++)
+        //{
+        //    EnemySpawner.            
+        //}
+        //enemySpawner.addEnemies(1);
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }

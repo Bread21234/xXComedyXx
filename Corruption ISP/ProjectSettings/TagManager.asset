@@ -11,8 +11,11 @@ TagManager:
   - LockedRoom
   - Enemy
   - Boss
-  - Enemy Spawner
   - Start Position
+  - Destroyer
+  - EnemySpawn
+  - Game Handler
+  - Level Handler
   layers:
   - Default
   - TransparentFX

@@ -75,10 +75,10 @@ public class CrawlerAI : MonoBehaviour
 
         if(force.x >= 0.01f)
         {
-            enemyGFX.localScale = new Vector3(-1* scale, scale, scale);
+            enemyGFX.localScale = new Vector3(scale, scale, scale);
         } else if(force.x <= -0.01f)
         {
-            enemyGFX.localScale = new Vector3(scale, scale, scale);
+            enemyGFX.localScale = new Vector3(-1*scale, scale, scale);
         }
 
     }
