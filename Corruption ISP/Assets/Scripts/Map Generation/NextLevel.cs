@@ -12,16 +12,17 @@ public class NextLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start() //make run every time a new scene is loaded
     {
-        StartCoroutine(holdPlease());
+      //  StartCoroutine(holdPlease());
         
     }
     public IEnumerator holdPlease() //activates on every room
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         foreach(GameObject specific in enemySpawners)
         {
             if(specific != null){
-                EnemySpawner classSpawner = gameObject.GetComponent<EnemySpawner>();
+                EnemySpawner classSpawner = specific.GetComponent<EnemySpawner>();
+               // Debug.Log(classSpawner);
                 if(classSpawner != null)
                 {
                     classSpawner.addEnemies(level);

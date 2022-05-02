@@ -26,8 +26,8 @@ public class EnemySpawner : MonoBehaviour
             Instantiate(LockedRoom,transform.position,Quaternion.identity);
             
             for (int i = 0; i <= enemyNumber; i++){
-                xOffset = Random.Range(-100,100);
-                yOffset = Random.Range(-100,100);
+                xOffset = Random.Range(-200,200);
+                yOffset = Random.Range(-200,200);
                 offset = new Vector3(xOffset,yOffset,0);
                 randEnemy = Random.Range(0, enemies.Length);
                 Instantiate(enemies[randEnemy], transform.position + offset, Quaternion.identity);
@@ -37,6 +37,7 @@ public class EnemySpawner : MonoBehaviour
     }
     public void addEnemies(int idk)
     {
+        //Debug.Log("Please have mercy");
         enemyNumber += idk;
     }
 }

@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootScript : MonoBehaviour
+public class Shotgun : MonoBehaviour
 {
-    
-    public Transform Gun;
+ public Transform Gun;
     Vector2 direction;
 
     public Transform ShootPoint;
@@ -14,7 +13,6 @@ public class ShootScript : MonoBehaviour
     public float fireRate;
     public float ReadyforNextShot;
 
-    public bool isShotGun = false;
 
     public Animator animator;
     private bool isReloading = false;
@@ -86,37 +84,26 @@ public class ShootScript : MonoBehaviour
     void shoot()
     {
         if (Gun.parent != null){
-            if(!isShotGun){
-                currentAmmo--; //removing a bullet
-                GameObject BulletIns = Instantiate(Bullet,ShootPoint.position,ShootPoint.rotation);
-                BulletIns.GetComponent<Rigidbody2D>().AddForce(BulletIns.transform.right * BulletSpeed); //this doesnt seem to create issue with pushing player
-               // var BulletIns = Instantiate(Bullet,ShootPoint.position,ShootPoint.rotation);
-               // BulletIns.AddForce(BulletIns.transform.right * BulletSpeed); 
-            }else{
-                for (int i = 0; i <= 2; i++)
+            currentAmmo--; //removing a bullet
+      
+            for (int i = 0; i <= 2; i++)
+            {
+                var BulletIns = Instantiate(Bullet,ShootPoint.position,ShootPoint.rotation);
+
+                switch (i)
                 {
-                    GameObject BulletIns = Instantiate(Bullet,ShootPoint.position,ShootPoint.rotation);
-                    //var BulletIns = Instantiate(Bullet,ShootPoint.position,ShootPoint.rotation);
-    
-                    switch (i)
-                    {
-                        case 0:
-                            currentAmmo -= 1;
-                            BulletIns.GetComponent<Rigidbody2D>().AddForce(BulletIns.transform.right * BulletSpeed + new Vector3(0f,180f,0f));
-                            //BulletIns.AddForce(BulletIns.transform.right * BulletSpeed + new Vector3(0f,-90f,0f));
-                            break;
-                        case 1:
-                           // BulletIns.AddForce(BulletIns.transform.right * BulletSpeed + new Vector3(0f,0f,0f));
-                            BulletIns.GetComponent<Rigidbody2D>().AddForce(BulletIns.transform.right * BulletSpeed + new Vector3(0f,0,0f));
-                            break;
-                        case 2:
-                            BulletIns.GetComponent<Rigidbody2D>().AddForce(BulletIns.transform.right * BulletSpeed + new Vector3(0f,90f,0f));
-                            //BulletIns.AddForce(BulletIns.transform.right * BulletSpeed + new Vector3(0f,90f,0f));
-                            break; 
-                    }  
-                }   
-            }
-        }
+                    case 0:
+                        BulletIns.GetComponent<Rigidbody2D>().AddForce(BulletIns.transform.right * BulletSpeed + new Vector3(0f,-90f,0f));
+                        break;
+                    case 1:
+                        BulletIns.GetComponent<Rigidbody2D>().AddForce(BulletIns.transform.right * BulletSpeed + new Vector3(0f,0,0f));
+                        break;
+                    case 2:
+                        BulletIns.GetComponent<Rigidbody2D>().AddForce(BulletIns.transform.right * BulletSpeed + new Vector3(0f,90f,0f));
+                        break;
+                }
+            }  
+        }   
     }
     IEnumerator Reload() 
     {

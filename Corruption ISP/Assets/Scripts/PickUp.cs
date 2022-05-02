@@ -77,7 +77,7 @@ public class PickUp : MonoBehaviour
     void addGun(Transform gunHolder, ShootScript gun)
     {
         gun.transform.SetParent(gunHolder);
-        gun.transform.localPosition = new Vector3((float)-9.48,(float)-.22,0); //change when get actual weapons
+        gun.transform.localPosition = new Vector3((float)-9.2,(float)-.2,0); //change when get actual weapons
     }
 }
 
