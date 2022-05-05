@@ -31,6 +31,7 @@ public class EnemySpawner : MonoBehaviour
                 offset = new Vector3(xOffset,yOffset,0);
                 randEnemy = Random.Range(0, enemies.Length);
                 Instantiate(enemies[randEnemy], transform.position + offset, Quaternion.identity);
+                //StartCoroutine(instantiateEnemies());
             }
             spawnedRoom = true;
         }
@@ -39,5 +40,15 @@ public class EnemySpawner : MonoBehaviour
     {
         //Debug.Log("Please have mercy");
         enemyNumber += idk;
+    }
+
+    IEnumerator instantiateEnemies()
+    {
+        yield return new WaitForSeconds(1f);
+        xOffset = Random.Range(-200,200);
+        yOffset = Random.Range(-200,200);
+        offset = new Vector3(xOffset,yOffset,0);
+        randEnemy = Random.Range(0, enemies.Length);
+        Instantiate(enemies[randEnemy], transform.position + offset, Quaternion.identity);
     }
 }

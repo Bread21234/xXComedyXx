@@ -15,7 +15,7 @@ public class EnemyCounter : MonoBehaviour
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         //enemyCountText.text = "Enemies : " + enemies.Length.ToString();
-        if (enemies.Length == 0){
+        if (enemies.Length <= 0){
             unLockRoom();
         }
     }
@@ -23,9 +23,10 @@ public class EnemyCounter : MonoBehaviour
         
         GameObject[] lockedRoom = GameObject.FindGameObjectsWithTag("LockedRoom");
         foreach(GameObject locked in lockedRoom){
-            randSpawnItem = Random.Range(1,5);
+            randSpawnItem = Random.Range(1,3);
             if (randSpawnItem == 2)
             {
+                Debug.Log("im trying");
                 whichItem = Random.Range(0,items.Length);
                 Instantiate(items[whichItem],locked.transform.position,Quaternion.identity);
             }
