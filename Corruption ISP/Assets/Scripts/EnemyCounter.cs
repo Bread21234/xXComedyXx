@@ -21,16 +21,15 @@ public class EnemyCounter : MonoBehaviour
     }
     void unLockRoom(){
         
-        GameObject[] lockedRoom = GameObject.FindGameObjectsWithTag("LockedRoom");
+        GameObject[] lockedRoom = GameObject.FindGameObjectsWithTag("LockedRoom"); //finds all the locked rooms
         foreach(GameObject locked in lockedRoom){
-            randSpawnItem = Random.Range(1,3);
+            randSpawnItem = Random.Range(1,3); //ramdom to decide if an item should be spawned
             if (randSpawnItem == 2)
             {
-                Debug.Log("im trying");
-                whichItem = Random.Range(0,items.Length);
-                Instantiate(items[whichItem],locked.transform.position,Quaternion.identity);
+                whichItem = Random.Range(0,items.Length); //deciding which item to spawn
+                Instantiate(items[whichItem],locked.transform.position,Quaternion.identity); //spawning an item with the idex
             }
-            Destroy(locked);
+            Destroy(locked); //unlocking the room
         }
     }
 }

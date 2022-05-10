@@ -73,7 +73,8 @@ public class ShootScript : MonoBehaviour
         if (Gun.parent != null){
             Gun.transform.right = direction;
         }
-        if(direction.x >= 0.01f)
+
+        if(direction.x >= 0.01f) //responsible for flipping the player
         {
             player.localScale = new Vector3(200,200,1);
             transform.localScale = new Vector3(7,7,1);

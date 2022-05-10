@@ -22,7 +22,7 @@ public class PickUp : MonoBehaviour
     {
         int previousSelectedWeapon = selectedWeapon;
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f) //takes in scroll wheel and changes the index of which weapon is being used.
         {
             if (selectedWeapon >= gunHolder.childCount - 1)
                 selectedWeapon = 0;
@@ -44,9 +44,9 @@ public class PickUp : MonoBehaviour
         {
             selectedWeapon = 1;
         }
-        if (previousSelectedWeapon != selectedWeapon)
+        if (previousSelectedWeapon != selectedWeapon) //checks if the index has changed
         {
-            SelectWeapon(gunHolder);
+            SelectWeapon(gunHolder); //calls func to switch the weapon to the new index
         }
     }
     public void SelectWeapon(Transform gunHolder)
@@ -55,9 +55,9 @@ public class PickUp : MonoBehaviour
         foreach (Transform weapon in gunHolder)
         {
             if (i == selectedWeapon)
-                weapon.gameObject.SetActive(true);
+                weapon.gameObject.SetActive(true); //activates the weapon with the correlating index.
             else
-                weapon.gameObject.SetActive(false);
+                weapon.gameObject.SetActive(false); //makes every other weapon inactive
             i++;
         }
     }

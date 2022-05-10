@@ -4,10 +4,25 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    public int health = 100;
+    public int health = 500;
+    public int damage;
+    private float timeBtwDamage = 1.5f;
+
+    public Animator redPanel;
+    public Animator camAnim;
+    //public slider healthbar;
 
     public GameObject deathEffect;
     public GameObject LevelLoader;
+
+    private void Update()
+    {
+        if (timeBtwDamage > 0)
+        {
+            timeBtwDamage -= Time.deltaTime;
+        }
+       // healthbar.value = health;
+    }
 
     public void TakeDamage (int damage)
     {
@@ -17,6 +32,8 @@ public class Boss : MonoBehaviour
             Die();
         }
     }
+
+
      void Die()
     {
         Instantiate(deathEffect, transform.position, Quaternion.identity);

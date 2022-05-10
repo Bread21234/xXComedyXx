@@ -16,6 +16,7 @@ TagManager:
   - EnemySpawn
   - Game Handler
   - Level Handler
+  - DeadPlayer
   layers:
   - Default
   - TransparentFX

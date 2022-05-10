@@ -21,19 +21,18 @@ public class EnemySpawner : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player") && spawnedRoom == false)
+        if(other.CompareTag("Player") && spawnedRoom == false) //if the room has not been used yet and the player enters
         {
-            Instantiate(LockedRoom,transform.position,Quaternion.identity);
+            Instantiate(LockedRoom,transform.position,Quaternion.identity); //instantiates the doors
             
-            for (int i = 0; i <= enemyNumber; i++){
-                xOffset = Random.Range(-200,200);
-                yOffset = Random.Range(-200,200);
-                offset = new Vector3(xOffset,yOffset,0);
-                randEnemy = Random.Range(0, enemies.Length);
-                Instantiate(enemies[randEnemy], transform.position + offset, Quaternion.identity);
-                //StartCoroutine(instantiateEnemies());
+            for (int i = 0; i <= enemyNumber; i++){ //loops based on how many floors the player has been on
+                xOffset = Random.Range(-200,200); //random x cord
+                yOffset = Random.Range(-200,200); //random y cord 
+                offset = new Vector3(xOffset,yOffset,0); 
+                randEnemy = Random.Range(0, enemies.Length); //random enemy from selection
+                Instantiate(enemies[randEnemy], transform.position + offset, Quaternion.identity); //create the enemy
             }
-            spawnedRoom = true;
+            spawnedRoom = true; //ensures the room won't spawn more enemies
         }
     }
     public void addEnemies(int idk)

@@ -9,35 +9,37 @@ public class playerHealth : MonoBehaviour
 
     public HealthBar healthBar;
 
+    public GameObject death; //death with death animation
+
+    public GameObject RetryButton;
+
     // Start is called before the first frame update
     void Start()
     {
-       // enemySpawner[] = GameObject.FindWithTag("EnemySpawner");
-      //  for(i=0; i <= enemySpaner.Length; i++)
-        //{
-        //    EnemySpawner.            
-        //}
-        //enemySpawner.addEnemies(1);
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        RetryButton = GameObject.FindWithTag("DeadPlayer");
+        RetryButton.SetActive(false);
+
+        currentHealth = maxHealth; //sets the original health to be the max
+        healthBar.SetMaxHealth(maxHealth); //sets the value of the healthbar slider to be its max as well
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(20);
-        }
+        if (currentHealth <= 0)
+        {//enables the retry button
+            RetryButton.SetActive(true);
+            Destroy(gameObject); //destroys the plays upon death and spawns his death animation
+        }   
     }
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        currentHealth -= damage; //function to be called from other classes to take damage from
 
-        healthBar.SetHealth(currentHealth);
+        healthBar.SetHealth(currentHealth); //healthbar slider follows up
     }
 
-    public void gainHealth(int amount)
+    public void gainHealth(int amount) //opposite of take damage
     {
         currentHealth += amount;
         if (currentHealth >= maxHealth)
