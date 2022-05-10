@@ -12,7 +12,7 @@ public class ObjectDelete : MonoBehaviour //this needs to be redone later
     void FixedUpdate()
     {
         f += 1;
-        if (f == 130){
+        if (f == 110){
             Destroy(gameObject);
              f = 0;
         }

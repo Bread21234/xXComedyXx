@@ -9,6 +9,8 @@ public class FollowPlayer : MonoBehaviour
     void Update()
     {
         playerPos = GameObject.FindWithTag("Player").transform.position;
-        transform.position = new Vector3(playerPos.x,playerPos.y,-10);
+        if (playerPos != null){
+            transform.position = new Vector3(playerPos.x,playerPos.y,-10);
+        }
     }
 }

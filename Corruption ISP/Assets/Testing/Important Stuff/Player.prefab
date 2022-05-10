@@ -132,6 +132,7 @@ MonoBehaviour:
   BulletSpeed: 35000
   fireRate: 6
   ReadyforNextShot: 0
+  isShotGun: 0
   animator: {fileID: 0}
   maxAmmo: 20
   reloadTime: 1
@@ -292,6 +293,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 0}
+  death: {fileID: 7120888394227972376, guid: db1c04dfa2d1a9547ac5e3bf2ee347a6, type: 3}
 --- !u!114 &5921610462165484054
 MonoBehaviour:
   m_ObjectHideFlags: 0

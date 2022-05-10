@@ -11,7 +11,7 @@ public class playerHealth : MonoBehaviour
 
     public GameObject death; //death with death animation
 
-    public GameObject RetryButton;
+    private GameObject RetryButton;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,8 @@ public class playerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {//enables the retry button
             RetryButton.SetActive(true);
-            Destroy(gameObject); //destroys the plays upon death and spawns his death animation
+            Instantiate(death,transform.position,Quaternion.identity);
+            Destroy(gameObject); //destroys the player upon death and spawns his death animation
         }   
     }
     public void TakeDamage(int damage)
